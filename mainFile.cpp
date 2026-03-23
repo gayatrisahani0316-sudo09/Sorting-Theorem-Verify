@@ -22,6 +22,7 @@ void runAnalysis(string name, vector<int> data, char mode) {
     else if (mode == 'B') bubbleSort(data);
     else if (mode == 'S') selectionSort(data);
     else if (mode == 'I') insertionSort(data);
+    else if (mode == 'R') binaryRecursion(10);
     
     auto end = chrono::high_resolution_clock::now();
     auto time = chrono::duration_cast<chrono::microseconds>(end - start).count();
@@ -32,6 +33,7 @@ void runAnalysis(string name, vector<int> data, char mode) {
     else if (mode == 'B') iters = bCount;
     else if (mode == 'S') iters = sCount;
     else if (mode == 'I') iters = iCount;
+    else if (mode == 'R') iters = rCount;
 
     cout << "OUTPUT:    "; display(data);
     cout << "TIME:      " << time << " us" << endl;
@@ -48,7 +50,8 @@ int main() {
     runAnalysis("Bubble Sort", myData, 'B');
     runAnalysis("Selection Sort", myData, 'S');
     runAnalysis("Insertion Sort", myData, 'I');
-
+    runAnalysis("Binary Recursion (Fib 10)", myData, 'R');
+    
     cout << "\n============================================" << endl;
     cout << "All algorithms verified successfully!" << endl;
 
